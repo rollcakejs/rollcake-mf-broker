@@ -2,7 +2,7 @@ import { Subject } from "rxjs";
 
 //enums
 export const WINDOW_VARIABLE = {
-    BROKER: 'RollCakeBrokerSharedVariables'
+    MF_BROKER: 'RollCakeMFBroker'
 };
 export const CONTEXT_ATTRIBUTE = {
     BUCKETS: 'buckets',

@@ -21,7 +21,7 @@ function RollCakeMFBroker(props) {
 }
 
 RollCakeMFBroker.prototype.init = function() {
-    window[WINDOW_VARIABLE.BROKER] = this.context;
+    window[WINDOW_VARIABLE.MF_BROKER] = this.context;
 
     STARTED_FETCH.subscribe(() => {
         this._fetchCount += 1;

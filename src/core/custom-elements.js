@@ -5,7 +5,7 @@ class RollCakeMicrofrontend extends HTMLElement {
         super();
 
         // strictly internal
-        this._context =  window[WINDOW_VARIABLE.BROKER];
+        this._context =  window[WINDOW_VARIABLE.MF_BROKER];
     }
 
     get name() {
