@@ -43,7 +43,7 @@ class RollCakeMicrofrontend extends HTMLElement {
                     containerBase.href = bucket.address;
                     containerHTMLDocument.head.insertAdjacentElement("afterbegin", containerBase);
                     if (contentWindow) {
-                        Object.defineProperty(contentWindow, WINDOW_VARIABLE.BROKER, { value: this._context });
+                        Object.defineProperty(contentWindow, WINDOW_VARIABLE.MF_BROKER, { value: this._context });
                     }
                     if (contentDocument) {
                         contentDocument.write(containerHTMLDocument.documentElement.innerHTML);
