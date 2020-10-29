@@ -22,6 +22,12 @@ function RollCakeMFBroker(buckets) {
 
 RollCakeMFBroker.prototype.init = function() {
     window[WINDOW_VARIABLE.ROLLCAKE] = this.context;
+    
+    const initialStore = window.localStorage.getItem(LOCAL_STORAGE.GLOBAL_STORE);
+
+    if (initialStore) {
+        this.context[CONTEXT_ATTRIBUTE.STORE].setStore(JSON.parse(initialStore));
+    }
 
     //watch update of store
     UPDATE_STORE.subscribe((newGlobalStore) => {

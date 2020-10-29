@@ -1,20 +1,22 @@
-import { LOCAL_STORAGE, UPDATE_STORE } from "../shared/constants";
+import { UPDATE_STORE } from "../shared/constants";
 
-function GlobalStore() {}
+function GlobalStore() {
+    this._store = {};
+
+    UPDATE_STORE.subscribe((response) => this._store = response);
+}
+
+GlobalStore.prototype.setStore = function(newStore) {
+    this._store = newStore;
+}
 
 GlobalStore.prototype.getState = function(state) {
-    const currGlobalState = window.localStorage.getItem(LOCAL_STORAGE.GLOBAL_STORE);
-    if (currGlobalState) {
-        return JSON.parse(currGlobalState)[state];
-    }
-    return null;
+    return this._store[state];
 };
 
 GlobalStore.prototype.setState = function(state, value) {
-    const currGlobalState = window.localStorage.getItem(LOCAL_STORAGE.GLOBAL_STORE) 
-    ? JSON.parse(window.localStorage.getItem(LOCAL_STORAGE.GLOBAL_STORE)) : {};
-    const newGlobalState = {...currGlobalState, [state]: value};
-    UPDATE_STORE.next(newGlobalState);
+    const newStore = {...this._store, [state]: value};
+    UPDATE_STORE.next(newStore);
 };
 
 export default GlobalStore;
