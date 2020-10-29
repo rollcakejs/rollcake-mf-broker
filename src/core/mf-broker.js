@@ -38,15 +38,15 @@ RollCakeMFBroker.prototype.init = function() {
     //watch micro frontends fetch
     STARTED_FETCH.subscribe(() => {
         this._fetchCount += 1;
-        this.context[CONTEXT_ATTRIBUTE.BUS].publish(INTERNAL_BUS_PUBLISH_EVENT_TYPE.IS_FETCHING_MICFRONTEND, true);
+        this.context[CONTEXT_ATTRIBUTE.BUS].publish(INTERNAL_BUS_PUBLISH_EVENT_TYPE.IS_FETCHING_MICROFRONTEND, true);
     });
     FINISHED_FETCH.subscribe(() => {
         this._fetchCount -= 1;
         if (this._fetchCount > 0) {
-            this.context[CONTEXT_ATTRIBUTE.BUS].publish(INTERNAL_BUS_PUBLISH_EVENT_TYPE.IS_FETCHING_MICFRONTEND, true);
+            this.context[CONTEXT_ATTRIBUTE.BUS].publish(INTERNAL_BUS_PUBLISH_EVENT_TYPE.IS_FETCHING_MICROFRONTEND, true);
         }
         else {
-            this.context[CONTEXT_ATTRIBUTE.BUS].publish(INTERNAL_BUS_PUBLISH_EVENT_TYPE.IS_FETCHING_MICFRONTEND, false);
+            this.context[CONTEXT_ATTRIBUTE.BUS].publish(INTERNAL_BUS_PUBLISH_EVENT_TYPE.IS_FETCHING_MICROFRONTEND, false);
         }
     });
 };
